@@ -1,4 +1,6 @@
-import { NgModule } from '@angular/core';
+import { NgModule,
+         Injectable
+       } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { FirebaseComponentComponent } from './firebase-component/firebase-component.component';
@@ -6,11 +8,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { MainComponent } from './main/main.component';
 import { ErrorComponent } from './error/error.component';
 import { environment } from 'src/environments/environment';
-import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database'
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { Injectable } from '@angular/core';
+import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Observable } from 'rxjs';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 
 @NgModule({
@@ -18,7 +24,9 @@ import { Observable } from 'rxjs';
     AppComponent,
     FirebaseComponentComponent,
     MainComponent,
-    ErrorComponent
+    ErrorComponent,
+    SignInComponent,
+    SignUpComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -31,7 +39,7 @@ import { Observable } from 'rxjs';
 })
 export class AppModule { }
 export class AuthenticationService {
-  userData: Observable<firebase.User>;
+  userData: Observable<firebase.default.User | null>;
   
   constructor(private angularFireAuth: AngularFireAuth) {
   this.userData = angularFireAuth.authState;
