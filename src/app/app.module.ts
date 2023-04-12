@@ -13,10 +13,11 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { Observable } from 'rxjs';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { AuthService } from './shared/services/auth';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './verify-email/verify-email.component';
 
 
 @NgModule({
@@ -26,52 +27,20 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     MainComponent,
     ErrorComponent,
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
     AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-export class AuthenticationService {
-  userData: Observable<firebase.default.User | null>;
-  
-  constructor(private angularFireAuth: AngularFireAuth) {
-  this.userData = angularFireAuth.authState;
-  }
-  
-  /* Sign up */
-  SignUp(email: string, password: string) {
-  this.angularFireAuth
-  .createUserWithEmailAndPassword(email, password)
-  .then(res => {
-  console.log('You are Successfully signed up!', res);
-  })
-  .catch(error => {
-  console.log('Something is wrong:', error.message);
-  });
-  }
-  
-  /* Sign in */
-  SignIn(email: string, password: string) {
-  this.angularFireAuth
-  .signInWithEmailAndPassword(email, password)
-  .then(res => {
-  console.log("You're in!");
-  })
-  .catch(err => {
-  console.log('Something went wrong:',err.message);
-  });
-  }
-  
-  /* Sign out */
-  SignOut() {
-  this.angularFireAuth
-  .signOut();
-  }
-}

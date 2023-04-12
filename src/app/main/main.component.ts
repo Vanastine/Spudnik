@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../shared/services/auth';
 
 @Component({
   selector: 'app-main',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent {
-
+  constructor(public authService: AuthService) {}
+  ngOnInit(): void {}
 }
