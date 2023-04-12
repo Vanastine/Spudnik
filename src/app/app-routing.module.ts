@@ -7,6 +7,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: 'firebase', component: FirebaseComponentComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'sign-in', component: SignInComponent},
   { path: 'sign-up', component: SignUpComponent},
   { path: 'verify-email', component: VerifyEmailComponent},
+  { path: 'dashboard', component: DashboardComponent},
   { path: 'forgot-password', component: ForgotPasswordComponent},
   { path: '**', component: ErrorComponent},
 ]
