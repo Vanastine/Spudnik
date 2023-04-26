@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { FirebaseComponentComponent } from './firebase-component/firebase-component.component';
 import { MainComponent } from './main/main.component';
 import { ErrorComponent } from './error/error.component';
 import { SignInComponent } from './sign-in/sign-in.component';
@@ -15,7 +14,6 @@ import { AboutUsComponent } from './about-us/about-us.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent},
-  { path: 'firebase', component: FirebaseComponentComponent},
   { path: 'about-us', component: AboutUsComponent},
   { path: 'sign-in', component: SignInComponent},
   { path: 'sign-up', component: SignUpComponent},
