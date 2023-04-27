@@ -9,6 +9,7 @@ import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'sign-up', component: SignUpComponent},
   { path: 'verify-email', component: VerifyEmailComponent},
   { path: 'dashboard', component: DashboardComponent},
+  { path: 'profile', component: ProfileComponent},
   { path: 'forgot-password', component: ForgotPasswordComponent},
   { path: '**', component: ErrorComponent},
 ]

@@ -20,6 +20,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { MainComponent } from './main/main.component';
 import { ErrorComponent } from './error/error.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ErrorComponent } from './error/error.component';
     ForgotPasswordComponent,
     VerifyEmailComponent,
     DashboardComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    ProfileComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
