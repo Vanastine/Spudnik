@@ -9,7 +9,9 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
-  constructor(public authService: AuthService, private db: AngularFireDatabase) { }
+  constructor(
+    public authService: AuthService, 
+    private db: AngularFireDatabase) { }
 
   checkFields() {
     
