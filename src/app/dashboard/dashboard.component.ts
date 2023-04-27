@@ -16,8 +16,8 @@ export class DashboardComponent {
   }
 
   tabVisible = false
-
-  saveData(inputValue: string, descrip: string, itemVal: string) {
+  //saveData function params inputValue: string, descrip: string, itemVal: string
+  saveData(inputValue: string) {
     const item = this.db.list(`/${this.authService.userData.uid}/items/`);
     //const itemInfo = this.db.list(`/${this.authService.userData.uid}/items/${this.authService.userData.itemVal}`)
     item.push(inputValue).then((resp) => {
