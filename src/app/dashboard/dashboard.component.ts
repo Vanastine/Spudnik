@@ -14,14 +14,19 @@ export class DashboardComponent {
   checkFields() {
     
   }
+
+  tabVisible = false
+
   saveData(inputValue: string, descrip: string, itemVal: string) {
     const item = this.db.list(`/${this.authService.userData.uid}/items/`);
-    const itemInfo = this.db.list(`/${this.authService.userData.uid}/items/${this.authService.userData.itemVal}`)
+    //const itemInfo = this.db.list(`/${this.authService.userData.uid}/items/${this.authService.userData.itemVal}`)
     item.push(inputValue).then((resp) => {
       console.log(resp);
     }).catch((error) => {
       console.error(error);
     })
+    /*
+    REMOVED UNTIL FIXED
 
     itemInfo.push(descrip).then((resp) => {
       console.log(resp);
@@ -34,6 +39,7 @@ export class DashboardComponent {
     }).catch((error) => {
       console.error(error);
     })
+    */
   }
   
   ngOnInit() { }
