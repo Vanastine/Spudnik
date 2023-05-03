@@ -72,7 +72,7 @@ export class AuthService {
         this.router.navigate(['verify-email']);
       });
   }
-  // Reset Forggot password
+  // Reset Forgot password
   ForgotPassword(passwordResetEmail: string) {
     return this.afAuth
       .sendPasswordResetEmail(passwordResetEmail)
@@ -128,19 +128,14 @@ export class AuthService {
   sign up with username/password and sign in with social auth  
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
   SetUserData(user: any) {
-    const userRef: AngularFirestoreDocument<any> = this.afs.doc(
-      `users/${user.uid}`
-    );
-    const userData: User = {
+    const item = this.db.object(`/Users/${user.uid}/UserInfo`)
+    .update({
       uid: user.uid,
-      email: user.email,
       displayName: user.displayName,
       photoURL: user.photoURL,
+      email: user.email,
       emailVerified: user.emailVerified,
-    };
-    return userRef.set(userData, {
-      merge: true,
-    });
+      });
   }
   // Sign out
   SignOut() {
