@@ -94,6 +94,12 @@ export class AuthService {
       this.router.navigate(['dashboard']);
     });
   }
+
+  GitHubAuth() {
+    return this.AuthLogin(new auth.GithubAuthProvider()).then((res: any) => {
+      this.router.navigate(['dashboard']);
+    })
+  }
   // Auth logic to run auth providers
   AuthLogin(provider: any) {
     return this.afAuth
