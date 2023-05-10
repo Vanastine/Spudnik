@@ -2,6 +2,7 @@ import { environment } from 'src/environments/environment';
 import { NgModule,
          Injectable
        } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
@@ -42,7 +43,8 @@ import { ProfileComponent } from './profile/profile.component';
     AngularFireStorageModule,
     AngularFireDatabaseModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
