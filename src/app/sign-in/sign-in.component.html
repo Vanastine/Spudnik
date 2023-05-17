@@ -19,7 +19,24 @@
                         <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
                         <input type="password" name="password" id="password" #userPwd required placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
                     </div>
-                    <button routerLink="/dashboard" type="submit" (click)="authService.SignIn(userEmail.value, userPwd.value)" class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign In</button>
+                    <div class="font-medium text-gray-500 dark:text-gray-400 text-primary-600 dark:text-primary-500">
+                      <p>
+                        Other ways to sign-in:
+                      </p>
+                    </div>
+                    <button type="button" (click)="authService.GoogleAuth()">
+                      <div class="transition ease-in-out duration-500 hover:scale-125 w-10 h-10 mr-3">
+                        <img src="../../assets/google.svg">
+                      </div>
+                    </button>
+                      <button type="button" (click)="authService.GitHubAuth()">
+                        <div class="transition ease-in-out duration-500 hover:scale-125 w-10 h-10">
+                          <img src="../../assets/github.svg">
+                        </div>
+                    </button>
+                    <div class="transition ease-in-out duration-500 hover:scale-110 w-full text-white bg-indigo-600 hover:bg-rose-600 hover:ring-rose-800 ring-4 outline-none ring-indigo-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:ring-primary-800">
+                      <button (click)="authService.SignIn(userEmail.value, userPwd.value)">Sign In</button>           
+                    </div>
                     <p class="text-sm font-light text-gray-500 dark:text-gray-400">
                         Need an Account? <a routerLink="/sign-up" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign Up</a>
                     </p>
