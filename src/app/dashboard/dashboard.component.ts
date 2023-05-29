@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { AuthService } from '../shared/services/auth';
-import { AngularFireDatabase, AngularFireObject } from '@angular/fire/compat/database';
-import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,10 +12,11 @@ export class DashboardComponent {
   itemTitle: string = ""
   itemDesc: string = ""
   itemVal: string = ""
+  list: any
 
   constructor(
     public authService: AuthService, 
-    private db: AngularFireDatabase) { }
+    public db: AngularFireDatabase) { }
 
   tabVisible = false
   //saveData function params inputValue: string, descrip: string, itemVal: string
@@ -28,8 +28,16 @@ export class DashboardComponent {
       ItemValue: itemVal,
     });
 
+    this.retrieveData()
+
     this.itemTitle= ""
     this.itemDesc= ""
     this.itemVal= ""
+  }
+
+  retrieveData() {
+    const items = this.db.list(`/Users/${this.userId}/Items`);
+    items.valueChanges().subscribe((data) => { this.list = data;});
+    console.log(items)
   }
 }
