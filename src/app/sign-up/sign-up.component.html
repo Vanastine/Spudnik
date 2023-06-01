@@ -1,9 +1,9 @@
 <section class="bg-gray-50 dark:bg-gray-900">
-  
+
   <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
     <a routerLink="" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
       <img class="w-8 h-8 mr-2" src="../../assets/spr_evil_kermit.png" alt="logo">
-      SpudBomb   
+      SpudBomb
   </a>
       <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
           <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -13,11 +13,11 @@
               <div class="space-y-4 md:space-y-6">
                   <div>
                       <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
-                      <input type="email" name="email" id="email" #userEmail required class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required="">
+                      <input type="email" name="email" id="email" #userEmail required class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com">
                   </div>
                   <div>
                       <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                      <input type="password" name="password" id="password" #userPwd required placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                      <input type="password" name="password" id="password" #userPwd required placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                   </div>
                   <div class="font-medium text-gray-500 dark:text-gray-400 text-primary-600 dark:text-primary-500">
                     <p>
@@ -35,16 +35,16 @@
                     -->
                   <button type="button" (click)="authService.GoogleAuth()">
                     <div class="transition ease-in-out duration-500 hover:scale-125 w-10 h-10 mr-3">
-                      <img src="../../assets/google.svg">
+                      <img src="../../assets/google.svg" alt="Google Sign-up">
                     </div>
                   </button>
                     <button type="button" (click)="authService.GitHubAuth()">
                       <div class="transition ease-in-out duration-500 hover:scale-125 w-10 h-10">
-                        <img src="../../assets/github.svg">
+                        <img src="../../assets/github.svg" alt="GitHub Sign-up">
                       </div>
                   </button>
                   <div class="transition ease-in-out duration-500 hover:scale-110 w-full text-white bg-indigo-600 hover:bg-rose-600 hover:ring-rose-800 ring-4 space-y-4 outline-none ring-indigo-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:ring-primary-800">
-                    <button (click)="authService.SignUp(userEmail.value, userPwd.value)">Create an Account</button>
+                    <button type="button" (click)="authService.SignUp(userEmail.value, userPwd.value)">Create an Account</button>
                   </div>
                   <p class="text-sm font-light text-gray-500 dark:text-gray-400">
                       Already have an account? <a routerLink="/sign-in" (click)="authService.SignOut()" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Login here</a>
