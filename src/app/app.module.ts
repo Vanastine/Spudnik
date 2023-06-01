@@ -4,6 +4,7 @@ import { NgModule,
        } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
@@ -22,6 +23,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { MainComponent } from './main/main.component';
 import { ErrorComponent } from './error/error.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ModalitemComponent } from './modalitem/modalitem.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { ProfileComponent } from './profile/profile.component';
     VerifyEmailComponent,
     DashboardComponent,
     AboutUsComponent,
-    ProfileComponent
+    ProfileComponent,
+    ModalitemComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -43,10 +46,11 @@ import { ProfileComponent } from './profile/profile.component';
     AngularFireStorageModule,
     AngularFireDatabaseModule,
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, ModalitemComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
