@@ -16,7 +16,7 @@ export class ModalitemComponent {
     return this.modalVisible ? "open" : "closed";
   }
 
-  toggleItemPage() {
+  toggleView() {
     this.modalVisible = !this.modalVisible;
   }
 }

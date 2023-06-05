@@ -3,6 +3,7 @@ import { AuthService } from '../shared/services/auth';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { openCloseTrigger } from 'environments/page-animation';
 import { ModalitemComponent } from 'app/modalitem/modalitem.component';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -16,11 +17,12 @@ export class DashboardComponent {
   itemVal: string = ""
   list: any
   tabVisible = false
-  
+
   constructor(
-    public authService: AuthService, 
+    public authService: AuthService,
     public db: AngularFireDatabase,
-    public modalItemComp: ModalitemComponent) { }
+    public modalItemComp: ModalitemComponent,
+    public router: Router) { }
 
   //saveData function params inputValue: string, descrip: string, itemVal: string
   saveData(itemTitle: string, itemDesc: string, itemVal: string) {
@@ -41,5 +43,9 @@ export class DashboardComponent {
   retrieveData() {
     const items = this.db.list(`/Users/${this.userId}/Items`);
     items.valueChanges().subscribe((data) => { this.list = data;});
+  }
+
+  navToItem(title: any) {
+    this.router.navigate([`dashboard/${title}`])
   }
 }
