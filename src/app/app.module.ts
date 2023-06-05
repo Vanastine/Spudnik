@@ -24,6 +24,7 @@ import { MainComponent } from './main/main.component';
 import { ErrorComponent } from './error/error.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ModalitemComponent } from './modalitem/modalitem.component';
+import { SingleItemComponent } from './single-item/single-item.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ModalitemComponent } from './modalitem/modalitem.component';
     DashboardComponent,
     AboutUsComponent,
     ProfileComponent,
-    ModalitemComponent
+    ModalitemComponent,
+    SingleItemComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),

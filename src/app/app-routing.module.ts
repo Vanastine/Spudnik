@@ -10,6 +10,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SingleItemComponent } from './single-item/single-item.component';
 
 
 
@@ -22,7 +23,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent},
   { path: 'profile', component: ProfileComponent},
   { path: 'forgot-password', component: ForgotPasswordComponent},
-  { path: '**', component: ErrorComponent},
+  { path:'dashboard/:type', component: SingleItemComponent },
+  //{ path: '**', component: ErrorComponent},
 ]
 
 @NgModule({
