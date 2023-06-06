@@ -35,7 +35,7 @@
                 <!-- Active: "bg-gray-100", Not Active: "" -->
                 <a routerLink="/profile" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
 
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
 
                 <a routerLink="" (click)="authService.SignOut()" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
               </div>
@@ -124,35 +124,28 @@
                 <button type="button" (click)="saveData(itemTitle, itemDesc, itemVal)" class="transition ease-in-out duration-500 hover:scale-110 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add Item</button>
               </div>
             </div>
-            <div class="group relative">
-              <div class="min-h-80 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-                <img href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" src="../../assets/spr_evil_kermit.png" alt="Front of men&#039;s Basic Tee in black." class="h-full w-full object-cover object-center lg:h-full lg:w-full">
-              </div>
-              <div class="mt-4 flex justify-between">
-                <div>
-                  <h3 class="text-sm text-gray-700">
-                      <span aria-hidden="true"></span>
-                      Sample Title
-                  </h3>
-                  <p class="mt-1 text-sm text-gray-500">Sample Description</p>
-                </div>
-                <p class="text-sm font-medium text-gray-900">Sample Value</p>
-              </div>
-            </div>
-              <div *ngFor="let item of list" class="group relative">
-                <div *ngIf="item.itemPicture">
-                  <div class="min-h-80 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-                    <img src="../../assets/spr_evil_kermit.png" alt="Front of men&#039;s Basic Tee in black." class="h-full w-full object-cover object-center lg:h-full lg:w-full">
-                  </div>
-                </div>
-                <button type="button" (click)="navToItem(item.ItemTitle)" class="mt-4 flex transition ease-in-out duration-500 hover:scale-110 w-full text-white bg-indigo-600 hover:bg-rose-600 hover:ring-rose-800 ring-4 space-y-4 outline-none ring-indigo-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:ring-primary-800">
-                  <div>
-                    <h3 class="text-lg font-medium text-white">
-                        <span aria-hidden="true"></span>
-                        {{item.ItemTitle}}
-                    </h3>
-                  </div>
-                </button>
+              <div *ngFor="let item of items | async" class="group relative">
+                      <div class="mb-1">
+                        <input type="text" id="title" [placeholder]="item.ItemTitle" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required>
+                      </div>
+                      <div class="mb-1">
+                        <input type="text" id="descrip" [placeholder]="item.ItemDescription" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required>
+                      </div>
+                      <div class="mb-1">
+                        <input type="text" id="itemVal" [placeholder]="item.ItemValue" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required>
+                      </div>
+                      <button type="button" (click)="updateItem(item.key, itemTitle, itemDesc, itemVal)" class="mt-4 flex transition ease-in-out duration-500 hover:scale-110 w-full text-white bg-indigo-600 hover:bg-green-600 hover:ring-green-800 ring-4 space-y-4 outline-none ring-indigo-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:ring-primary-800">
+                          <h3 class="text-lg font-medium text-white">
+                              <span aria-hidden="true"></span>
+                              Update
+                          </h3>
+                      </button>
+                      <button type="button" (click)="deleteItem(item.key)" class="mt-4 flex transition ease-in-out duration-500 hover:scale-110 w-full text-white bg-rose-600 ring-4 space-y-4 outline-none ring-rose-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:ring-primary-800">
+                          <h3 class="text-lg font-medium text-white">
+                            <span aria-hidden="true"></span>
+                            Delete
+                          </h3>
+                      </button>
               </div>
             <!-- More products... -->
           </div>
