@@ -56,8 +56,8 @@ export class DashboardComponent {
   updateItem(key: string, itemTitle: string, itemDesc: string, itemVal: string) {
     this.itemsRef.update(key, {
       ItemTitle: itemTitle,
-      ItemDesc: itemDesc,
-      ItemVal: itemVal
+      ItemDescription: itemDesc,
+      ItemValue: itemVal
     })
   }
 
